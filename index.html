@@ -46,6 +46,32 @@
     .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #0A52A0 !important; }
     .premise { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #00AEEF !important; }
     @page { margin: 8mm 10mm; size: A4; }
+
+    /* Prevent cards, boxes and section headers from splitting across pages */
+    .profile-card,
+    .channel-card,
+    .do-box,
+    .dont-box,
+    .formula-box,
+    .payoff,
+    .reminder,
+    .section-label {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    /* Keep a section label attached to the content that follows it */
+    .section-label {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    /* Allow grids to break between cards, but not inside a card */
+    .profile-grid,
+    .channel-strip,
+    .do-dont {
+      break-inside: auto;
+    }
   }
 
   .print-btn {
